@@ -25,8 +25,8 @@ pipeline{
         }
         stage("Execute system tests") {
             steps {
-                sh "selenium-side-runner --server http://localhost:4444/wd/hub -c 'browserName=firefox' --base-url http://assignment-container test/system/FunctionalTests.side"
-                sh "selenium-side-runner --server http://localhost:4444/wd/hub -c 'browserName=chrome' --base-url http://assignment-container test/system/FunctionalTests.side"
+                sh "selenium-side-runner --server http://localhost:4444/wd/hub -c 'browserName=firefox' test/system/FunctionalTests.side --base-url http://assignment-container" 
+                sh "selenium-side-runner --server http://localhost:4444/wd/hub -c 'browserName=chrome' test/system/FunctionalTests.side --base-url http://assignment-container"
             }
         }
     }
