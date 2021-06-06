@@ -1,2 +1,2 @@
 FROM nginx
-COPY src /usr/share/nginx/html
+COPY E:\DevOps\Thomas\FrontendCalculator /usr/share/nginx/html
