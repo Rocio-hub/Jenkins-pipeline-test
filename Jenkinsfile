@@ -16,8 +16,8 @@ pipeline{
         }
         stage("Selenium grid setup") {
             steps {
-                sh "docker network create SE"
-                sh "docker run -d --rm -p 4444:4444 --net=SE --name selenium-hub2 selenium/hub"
+                sh "docker network create SE2"
+                sh "docker run -d --rm -p 4444:4444 --net=SE2 --name selenium-hub2 selenium/hub"
                 sh "docker run -d --rm --net=SE -e HUB_HOST=selenium-hub2 --name selenium-node-chrome selenium/node-chrome"
                 sh "docker run -d --rm --net=SE -e HUB_HOST=selenium-hub2 --name selenium-node-firefox selenium/node-firefox"
                 sh "docker run -d --rm --net=SE --name assignment-container roci0055/frontend-calc"                
@@ -33,7 +33,7 @@ pipeline{
     post {
         cleanup {
             echo "Cleaning the Docker environment"
-            sh script:"docker stop selenium-hub", returnStatus:true
+            sh script:"docker stop selenium-hub2", returnStatus:true
             sh script:"docker stop selenium-node-firefox", returnStatus:true
             sh script:"docker stop selenium-node-chrome", returnStatus:true
             sh script:"docker stop assignment-container", returnStatus:true
