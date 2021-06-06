@@ -16,7 +16,6 @@ pipeline{
         }
         stage("Selenium grid setup") {
             steps {
-                sh "npm install -g selenium-side-runner"
                 sh "docker network create SE3"
                 sh "docker run -d --rm -p 4444:4444 --net=SE3 --name selenium-hub3 selenium/hub"
                 sh "docker run -d --rm --net=SE3 -e HUB_HOST=selenium-hub3 --name selenium-node-chrome selenium/node-chrome"
