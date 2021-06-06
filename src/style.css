@@ -1,0 +1,19 @@
+.jumbotron {
+    margin: 50px auto;
+}
+.form-row {
+    margin-top: 20px;
+}
+.form-control, select {
+    text-align: center;
+}
+
+.result {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+h1 {
+    padding: 0;
+    text-align: center;
+}

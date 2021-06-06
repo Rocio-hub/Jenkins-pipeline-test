@@ -1,2 +1,2 @@
 FROM nginx
-COPY Assignment/FrontendCalculator /usr/share/nginx/html 
+COPY src /usr/share/nginx/html
